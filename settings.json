@@ -1,0 +1,213 @@
+{
+  // meta stuff
+  "workbench.startupEditor": "none",
+  "editor.accessibilitySupport": "off",
+  "editor.experimental.asyncTokenization": true,
+  // text editing stuff
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.linkedEditing": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.tabSize": 2,
+  // ui stuff
+  //    font
+  "editor.fontFamily": "Geist Mono, Berkeley Mono, monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.42857, // makes font size 14 have line height of ~20px
+  "apc.font.family": "Geist Mono", // apply font to ALL the UI
+  "terminal.integrated.fontFamily": "FantasqueSansMono NF", // except terminal applies a different font for compatibility with oh my posh
+  "editor.fontLigatures": true,
+  //    cursor
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  //    window
+  //      title bar
+  "window.title": "${dirty}${activeEditorShort}",
+  "editor.smoothScrolling": true,
+  "window.zoomLevel": 1,
+  //      top bar
+  // "workbench.editor.showTabs": false, // P R A C T I C E
+  "breadcrumbs.enabled": false,
+  "window.commandCenter": false, // hides those little squares on the top right of the window
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.editor.customLabels.patterns": {
+    // custom labels for next.js apps
+    "**/app/**/page.tsx": "${dirname} - page.tsx",
+    "**/app/**/layout.tsx": "${dirname} - layout.tsx",
+  },
+  //     minimap
+  "editor.minimap.enabled": false, // thinking about it
+  "editor.minimap.renderCharacters": false, // make minimap blockish (low level of detail)
+  "editor.hideCursorInOverviewRuler": true, // don't highlight current line in scrollbar
+  "editor.minimap.autohide": true, // shows minimap only on hover
+  //     sidebar
+  "workbench.list.smoothScrolling": true,
+  "workbench.activityBar.location": "bottom",
+  "workbench.sideBar.location": "right", // puts sidebar on the right, less disruptive (doesn't shift code if text wrap is disabled) when opening with cmd+b
+  //     bottom bar
+  "workbench.statusBar.visible": true,
+  //     editor
+  "editor.stickyScroll.enabled": true, // keep block name fixed at top when scrolling
+  "gitlens.mode.active": "zen", // toggle with command palette, zen mode hides gitlens stuff for when you don't need it
+  "editor.wordWrap": "on", // wrap text instead of scrolling horizontally
+  //   Theme
+  "workbench.iconTheme": "chalice-icon-theme",
+  "workbench.colorTheme": "Vesper",
+  // overides vesper theme colors start
+  "workbench.colorCustomizations": {
+    "editorGutter.addedBackground": "#A0A0A0",
+    "editorGutter.deletedBackground": "#A0A0A0",
+    "editorGutter.modifiedBackground": "#A0A0A0"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // remove peppermint flavor
+      {
+        "name": "String, Symbols, Inherited Class",
+        "scope": [
+          "string",
+          "constant.other.symbol",
+          "constant.other.key",
+          "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js"
+        ],
+        "settings": {
+          "foreground": "#A0A0A0"
+        }
+      },
+      {
+        "name": "CSS ID's",
+        "scope": [
+          "source.sass keyword.control",
+          "meta.attribute-selector.scss"
+        ],
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      },
+      {
+        "name": "Inserted",
+        "scope": [
+          "markup.inserted"
+        ],
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      }
+    ]
+  },
+  // overrides vesper theme colors end
+  // explorer
+  "explorer.confirmDelete": false,
+  // terminal
+  "terminal.integrated.smoothScrolling": true,
+  // git stuff
+  "git.openRepositoryInParentFolders": "always",
+  "git.autofetch": true,
+  "git.confirmNoVerifyCommit": false,
+  "git.confirmSync": false,
+  "git.ignoreMissingGitWarning": true,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "push:command"
+  ],
+  "gitlens.hovers.currentLine.over": "line",
+  // js tooling stuff
+  "typescript.preferences.importModuleSpecifier": "non-relative", // prefer aliases when importing
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "eslint.codeActionsOnSave.mode": "all", // run eslint autofix on save
+  //    eslint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".css",
+      ".json",
+      ".jsonc",
+      ".js",
+      ".jsx",
+      ".mdx",
+      ".ts",
+      ".tsx"
+    ]
+  },
+  "eslint.validate": [
+    "mdx",
+    "html",
+    "css",
+    "json",
+    "jsonc",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  //    prettier
+  "prettier.requireConfig": true,
+  "tailwindCSS.experimental.classRegex": [
+    // enables tailwind autocomplete for specified functions
+    [
+      "cva\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cn\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "cx\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ]
+  ],
+  "emmet.includeLanguages": {
+    "javascript": "html",
+    "astro": "html",
+    "typescript": "html"
+  },
+  "files.associations": {
+    "*.css": "css",
+    "*.html": "html",
+    "*.json": "json",
+    "*.jsonc": "jsonc"
+  },
+  //    json
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+  },
+  //    html
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+  },
+  //    css
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features",
+  },
+  // github copilot
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "editor.quickSuggestionsDelay": 225,
+  "workbench.layoutControl.enabled": false,
+  "tailwind-fold.foldedTextBackgroundColor": "rgba(255, 199, 135, 0.045)",
+  "tailwind-fold.foldedTextColor": "rgba(255, 199, 135, .65)",
+  "tailwind-fold.foldLengthThreshold": 50,
+  "tailwind-fold.unfoldIfLineSelected": true,
+  "tailwind-fold.showTailwindImage": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // extensions
+  //      live server
+  "livePreview.autoRefreshPreview": "On All Changes in Editor",
+  "window.menuBarVisibility": "compact",
+  "tailwind-fold.autoFold": false,
+}
